@@ -58,9 +58,10 @@ percentageLabel.TextScaled = true
 percentageLabel.Text = "1%"
 
 -- Run Script button (hidden initially)
-local runButton = Instance.new("TextButton", progressBarBG) -- Parent changed to progressBarBG for easier positioning
-runButton.Size = UDim2.new(1, 0, 1, 0)
-runButton.Position = UDim2.new(0, 0, 0, 0)
+local runButton = Instance.new("TextButton", frame)
+runButton.Size = UDim2.new(0.4, 0, 0.2, 0)
+runButton.Position = UDim2.new(0.5, 0, 0.88, 0)
+runButton.AnchorPoint = Vector2.new(0.5, 0.5)
 runButton.BackgroundColor3 = Color3.fromRGB(0, 255, 170)
 runButton.TextColor3 = Color3.fromRGB(0, 0, 0)
 runButton.Font = Enum.Font.GothamBold
@@ -79,15 +80,11 @@ spawn(function()
 		wait(0.8) -- 100 steps * 0.8s = 80 seconds
 	end
 
-	-- Hide the progress bar fill and percentage text
-	progressBar.Visible = false
-	percentageLabel.Visible = false
-	
-	-- Show the Run Script button inside the progress bar area
+	-- Show Run Script button
 	runButton.Visible = true
 end)
 
--- Run Button click event (no action assigned)
+-- Run Button (does nothing)
 runButton.MouseButton1Click:Connect(function()
 	print("Run Script clicked (no action assigned)")
 end)
